@@ -1,0 +1,11 @@
+:root {
+    --hovedfarge: #912e1f;
+    --bakgrunnsfarge: #EDC79B;
+    --aksent_grønn: #63A375;
+    --aksent_blaa: #92AFD7;
+    --dyp_grønn: #1F2F16;
+}
+
+body {
+    background-color: var(--bakgrunnsfarge);
+}

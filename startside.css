@@ -1,0 +1,66 @@
+main {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    height: 100vh;
+    width: 100%;
+    padding: 2%;
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+#main_container {
+    background-color: var(--hovedfarge);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: space-around;
+}
+#main_container div {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+}
+#nettsidetittel {
+    color: white;
+    font-family: "Cinzel", serif;
+    font-optical-sizing: auto;
+    font-weight: 900;
+    font-style: normal;
+    font-size: 2rem;
+}
+#logo {
+    flex-direction: column;
+    justify-content: flex-end;
+}
+#logo img {
+    width: 20cqh;
+    height: 20cqh;
+}
+#nettsidetittel {
+    flex-grow: 1;
+}
+#logg_inn_knapper {
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+#logg_inn_knapper button {
+    margin: 10px;
+}
+
+
+#handtak {
+    display: flex;
+    align-items: center;
+}
+
+#handtak img {
+    width: 40vh;
+    height: 20vh;
+}
