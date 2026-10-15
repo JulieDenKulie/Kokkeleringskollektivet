@@ -1,9 +1,11 @@
 :root {
     --hovedfarge: #912e1f;
     --bakgrunnsfarge: #EDC79B;
-    --aksent_grønn: #63A375;
+    --aksent_gronn: #63A375;
+    --aksent_gronn_lys: #90C09D;
     --aksent_blaa: #92AFD7;
-    --dyp_grønn: #1F2F16;
+    --aksent_blaa_lys: #C0D3ED;
+    --dyp_gronn: #1F2F16;
 }
 
 body {

@@ -64,3 +64,33 @@ main {
     width: 40vh;
     height: 20vh;
 }
+
+button {
+    border-radius: 20px;
+    padding: 10px;
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+button:nth-child(2n-1) {
+    background-color: var(--aksent_gronn);
+    border-color: var(--aksent_gronn);
+}
+button:nth-child(2n-1):hover {
+    background-color: var(--aksent_gronn_lys);
+    border-color: var(--aksent_gronn_lys);
+}
+
+button:nth-child(2n) {
+    background-color: var(--aksent_blaa);
+    border-color: var(--aksent_blaa);
+}
+
+button:nth-child(2n):hover {
+    background-color: var(--aksent_blaa_lys);
+    border-color: var(--aksent_blaa_lys);
+}
+
+button:hover {
+    transform: translateY(-2px);
+}
