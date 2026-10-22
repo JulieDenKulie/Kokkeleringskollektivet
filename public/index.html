@@ -52,7 +52,8 @@
         const provider = new GoogleAuthProvider();
         const redirectPage = "hjem.html"
 
-        getRedirectResult(auth)
+        
+        /* getRedirectResult(auth)
         .then((result) => {
             // This gives you a Google Access Token. You can use it to access Google APIs.
             const credential = GoogleAuthProvider.credentialFromResult(result);
@@ -74,6 +75,31 @@
             // The AuthCredential type that was used.
             // const credential = GoogleAuthProvider.credentialFromError(error);
             // ...
+        }); */
+        getRedirectResult(auth)
+        .then((result) => {
+            if (!result) {
+                console.log("Ingen omdirigeringsdata tilgjengelig (eller allerede håndtert).");
+                return; 
+            }
+
+           
+            const credential = GoogleAuthProvider.credentialFromResult(result);
+            const token = credential?.accessToken; 
+
+            const user = result.user;
+            
+            console.log("Innlogging vellykket via omdirigering:", user);
+
+            window.location.href = "hjem.html"; 
+
+        }).catch((error) => {
+            console.error("Feil oppstod under getRedirectResult:", error.message);
+            
+            // Trygg feilhåndtering i tilfelle customData eller lignende mangler
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            const email = error.customData?.email;
         });
         document.getElementById("logg_inn_knapp").addEventListener("click", () => {
             // Siden forlater nå nettstedet ditt og går til Google
