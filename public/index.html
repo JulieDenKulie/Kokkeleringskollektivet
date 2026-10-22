@@ -64,7 +64,7 @@
             // ...
             console.log("Innlogging vellykket via omdirigering:", user);
         }).catch((error) => {
-            console.log("Feil?")
+            console.log(error.message)
             // Handle Errors here.
             const errorCode = error.code;
             const errorMessage = error.message;
