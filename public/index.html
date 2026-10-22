@@ -28,7 +28,7 @@
         // Import the functions you need from the SDKs you need
         import { initializeApp } from "https://www.gstatic.com/firebasejs/13.0.0/firebase-app.js";
         import { getAnalytics } from "https://www.gstatic.com/firebasejs/13.0.0/firebase-analytics.js";
-        import { getAuth, getRedirectResult, GoogleAuthProvider, signInWithRedirect} from "https://www.gstatic.com/firebasejs/13.0.0/firebase-auth.js";
+        import { getAuth, getRedirectResult, GoogleAuthProvider, signInWithRedirect, onAuthStateChanged} from "https://www.gstatic.com/firebasejs/13.0.0/firebase-auth.js";
 
         // TODO: Add SDKs for Firebase products that you want to use
         // https://firebase.google.com/docs/web/setup#available-libraries
@@ -76,31 +76,16 @@
             // const credential = GoogleAuthProvider.credentialFromError(error);
             // ...
         }); */
-        getRedirectResult(auth)
-        .then((result) => {
-            if (!result) {
-                console.log("Ingen omdirigeringsdata tilgjengelig (eller allerede håndtert).");
-                return; 
+
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                console.log("Brukeren er logget inn:", user);
+                window.location.href = "hjem.html";
+            } else {
+                console.log("Ingen bruker logget inn for øyeblikket.");
             }
-
-           
-            const credential = GoogleAuthProvider.credentialFromResult(result);
-            const token = credential?.accessToken; 
-
-            const user = result.user;
-            
-            console.log("Innlogging vellykket via omdirigering:", user);
-
-            window.location.href = "hjem.html"; 
-
-        }).catch((error) => {
-            console.error("Feil oppstod under getRedirectResult:", error.message);
-            
-            // Trygg feilhåndtering i tilfelle customData eller lignende mangler
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            const email = error.customData?.email;
         });
+
         document.getElementById("logg_inn_knapp").addEventListener("click", () => {
             // Siden forlater nå nettstedet ditt og går til Google
             console.log("test")
