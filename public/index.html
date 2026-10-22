@@ -63,6 +63,7 @@
             // IdP data available using getAdditionalUserInfo(result)
             // ...
             console.log("Innlogging vellykket via omdirigering:", user);
+            window.location.href = redirectPage;
         }).catch((error) => {
             console.log(error.message)
             // Handle Errors here.
