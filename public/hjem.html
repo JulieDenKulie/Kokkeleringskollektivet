@@ -39,7 +39,6 @@
         const analytics = getAnalytics(app);
         const auth = getAuth(app);
         const provider = new GoogleAuthProvider();
-        const redirectPage = "hjem.html"
 
         
         /* getRedirectResult(auth)
@@ -73,10 +72,6 @@
             } else {
                 console.log("Ingen bruker logget inn for øyeblikket.");
             }
-        });
-
-        document.getElementById("logg_inn_knapp").addEventListener("click", () => {
-            signInWithRedirect(auth, provider);
         });
     </script>
 </body>
