@@ -12,6 +12,17 @@
 </head>
 <body>
     <main>
+        <div id="main_container">
+            <div id="logo"><img src="./bilder/plassholder_kvadrat.png" alt="logo"></div>
+            <div id="nettsidetittel"><h1>NETTSIDENAVN</h1></div>
+            <div id="logg_inn_knapper">
+                <button id="logg_inn_knapp">Logg inn →</button>
+                <button>Registrer bruker →</button>
+            </div>
+        </div>
+        <div id="handtak">
+            <img src="./bilder/plassholder_kvadrat.png" alt="bilde av håndtak">
+        </div>
     </main>
     <script type="module">
         // Import the functions you need from the SDKs you need
@@ -39,6 +50,7 @@
         const analytics = getAnalytics(app);
         const auth = getAuth(app);
         const provider = new GoogleAuthProvider();
+        const redirectPage = "hjem.html"
 
         
         /* getRedirectResult(auth)
@@ -72,6 +84,10 @@
             } else {
                 console.log("Ingen bruker logget inn for øyeblikket.");
             }
+        });
+
+        document.getElementById("logg_inn_knapp").addEventListener("click", () => {
+            signInWithRedirect(auth, provider);
         });
     </script>
 </body>
