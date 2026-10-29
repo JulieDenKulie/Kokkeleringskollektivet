@@ -68,7 +68,6 @@
         onAuthStateChanged(auth, (user) => {
             if (user) {
                 console.log("Brukeren er logget inn:", user);
-                window.location.href = "hjem.html";
             } else {
                 console.log("Ingen bruker logget inn for øyeblikket.");
             }
