@@ -80,7 +80,7 @@
         onAuthStateChanged(auth, (user) => {
             if (user) {
                 console.log("Brukeren er logget inn:", user);
-                /*window.location.href = redirectPage;*/
+                window.location.href = redirectPage;
             } else {
                 console.log("Ingen bruker logget inn for øyeblikket.");
             }
