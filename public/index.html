@@ -48,8 +48,6 @@
         // Initialize Firebase
         const app = initializeApp(firebaseConfig);
         const analytics = getAnalytics(app);
-        const auth = getAuth(app);
-        const provider = new GoogleAuthProvider();
         const redirectPage = "hjem.html"
 
         
@@ -77,17 +75,8 @@
             // ...
         }); */
 
-        onAuthStateChanged(auth, (user) => {
-            if (user) {
-                console.log("Brukeren er logget inn:", user);
-                window.location.href = redirectPage;
-            } else {
-                console.log("Ingen bruker logget inn for øyeblikket.");
-            }
-        });
-
         document.getElementById("logg_inn_knapp").addEventListener("click", () => {
-            signInWithRedirect(auth, provider);
+            window.location.href = redirectPage;
         });
     </script>
 </body>
